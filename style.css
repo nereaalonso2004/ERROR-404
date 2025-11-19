@@ -1,0 +1,172 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* GENERAL */
+body {
+  background: #000;
+  color: #00ff66;
+  font-family: 'Press Start 2P', monospace;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  padding-top: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Fondo estrellado */
+.stars {
+  width: 100%;
+  height: 100%;
+  /* background: url("https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif")
+              center/cover no-repeat; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+/* CRT efecto monitor retro */
+.crt {
+  position: relative;
+}
+
+.crt::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    rgba(0,255,0,0.05) 0px,
+    rgba(0,255,0,0.05) 2px,
+    rgba(0,255,0,0.02) 2px,
+    rgba(0,255,0,0.02) 4px
+  );
+}
+
+/* TITULO GLITCH */
+.title {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  position: relative;
+  animation: flicker 2s infinite;
+}
+
+/* Glitch layers */
+.glitch:before,
+.glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.glitch:before {
+  left: 2px;
+  text-shadow: -2px 0 red;
+  animation: glitch .8s infinite linear reverse;
+}
+
+.glitch:after {
+  left: -2px;
+  text-shadow: -2px 0 cyan;
+  animation: glitch .8s infinite linear;
+}
+
+/* Consola de texto parpadeando */
+.scanline {
+  border-right: 2px solid #00ff66;
+  margin-bottom: 2rem;
+  display: inline-block;
+  animation: blink 0.6s steps(1) infinite;
+}
+
+/* Objetos flotando */
+.floating-object {
+  position: absolute;
+  width: 120px;
+  animation: float 6s ease-in-out infinite;
+  z-index: -1;
+}
+
+.object1 {
+  top: 30%;
+  left: 12%;
+  animation-duration: 7s;
+}
+
+.object2 {
+  top: 65%;
+  right: 15%;
+  animation-duration: 5.5s;
+}
+
+.object3 {
+  top: 20%;
+  right: 5%;
+  animation-duration: 8s;
+}
+
+/* Botón */
+.btn {
+  margin-top: 2rem;
+  padding: 15px 30px;
+  background: #00ff66;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #33ff88;
+}
+
+/* ANIMACIONES */
+
+/* Sin gravedad */
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(3deg); }
+  100% { transform: translateY(0) rotate(-3deg); }
+}
+
+/* Glitch */
+@keyframes glitch {
+  0% { clip-path: inset(10% 0 80% 0); }
+  20% { clip-path: inset(30% 0 60% 0); }
+  40% { clip-path: inset(5% 0 85% 0); }
+  60% { clip-path: inset(40% 0 40% 0); }
+  80% { clip-path: inset(10% 0 70% 0); }
+  100% { clip-path: inset(20% 0 50% 0); }
+}
+
+/* Texto parpadeo */
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Pantalla que parpadea  */
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.2; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.8rem;
+  }
+
+  .floating-object {
+    width: 70px;
+  }
+}
