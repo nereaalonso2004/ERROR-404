@@ -1,8 +1,52 @@
+<!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error 404 - Marte no encontrado</title>
+
+  Tipografía pixel
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  Fondo estrellado
+  <div class="stars"></div>
+
+  <main class="container crt">
+    
+    <h1 class="title glitch" data-text="404">404</h1>
+
+    <p class="console-text scanline">
+      ALERTA: Gravedad cero detectada.  
+      El planeta MARTE ha desaparecido.
+    </p>
+
+    Objetos flotando
+    <img src="https://i.imgur.com/4f7S26C.png" class="floating-object object1" alt="satélite" />
+    <img src="https://i.imgur.com/qyjsIOV.png" class="floating-object object2" alt="herramienta" />
+    <img src="https://i.imgur.com/yRGiCME.png" class="floating-object object3" alt="casco" />  
+
+    <p class="countdown">
+      Tiempo restante para aterrizaje:
+      <span id="timer">03:00</span>
+    </p>
+
+    <button class="btn" onclick="goBack()"> REINTENTAR </button>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Error 404 - Marte no encontrado</title>
 
     <!-- Tipografía pixel -->
@@ -14,30 +58,62 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body>
-    <!-- Fondo estrellado -->
-    <div class="stars"></div>
+  <body class="error">
+    <video autoplay muted loop id="bg-video">
+      <source
+        src="https://ik.imagekit.io/mariaudiez/856309-hd_1920_1080_30fps.mp4?updatedAt=1763462876687"
+        type="video/mp4"
+      />
+    </video>
 
-    <main class="uva">
-      <h1 class="title glitch" data-text="404">404</h1>
-
-      <p class="console-text scanline">
-        ALERTA: Gravedad cero detectada. El planeta MARTE ha desaparecido.
+    <div class="contenido">
+      <h1 class="glitch" data-text="ERROR 404">ERROR 404</h1>
+      <h2>¡Marte ha desaparecido!</h2>
+      <p>
+        Los sensores de navegación no encuentran el planeta.
+        <br />
+        Algo o alguien lo ha sustraído del sistema solar.
       </p>
+    </div>
 
-      <!-- Objetos flotando -->
-      <!-- <img src="https://i.imgur.com/4f7S26C.png" class="floating-object object1" alt="satélite" />
-    <img src="https://i.imgur.com/qyjsIOV.png" class="floating-object object2" alt="herramienta" />
-    <img src="https://i.imgur.com/yRGiCME.png" class="floating-object object3" alt="casco" /> -->
+    <div id="game-area">
+      <div class="planet mercury"></div>
+      <div class="planet venus"></div>
+      <div class="planet earth"></div>
+      <div class="planet mars"></div>
 
-      <p class="countdown">
-        Tiempo restante para aterrizaje:
-        <span id="timer">03:00</span>
-      </p>
-
-      <!-- <button class="btn" onclick="goBack()"> REINTENTAR </button> -->
-    </main>
+      <button id="toggleGravity">Activar/Desactivar Gravedad</button>
+    </div>
 
     <script src="script.js"></script>
   </body>
 </html>
+
+<!-- <button class="btn" id="modal-trigger">Contactar con la nave</button> -->
+
+<!-- <div class="modal-background hidden" id="modal">
+        <div class="modal-container">
+          <p>
+            🔴 INFORME DE LA TRIPULACIÓN – NAVE ESTELAR UDIT-01
+            <br />
+            <br />
+            Se ha confirmado la desaparición total del planeta Marte. Por el
+            momento no hay señales claras de lo ocurrido:
+            <br />
+            podría haberse evaporado, teletransportado o haberse ido a dar un
+            paseo intergaláctico sin avisar a nadie.
+            <br />
+            <br />
+            Mientras realizamos nuevas comprobaciones y recalibramos los
+            sensores de navegación, pedimos mantener la calma.
+            <br />
+            La misión continúa, aunque con un ligero… cambio de destino.
+            <br />
+            <br />
+            Próxima actualización en cuanto tengamos algo que no sea simplemente
+            <br />
+            “Marte no está donde lo dejamos”.
+          </p>
+        </div>
+      </div>
+    </div> -->

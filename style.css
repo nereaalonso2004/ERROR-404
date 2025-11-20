@@ -1,4 +1,4 @@
-/* RESET */
+/* RESET
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,7 @@
 }
 
 /* GENERAL */
-body {
+/* body {
   background: #ffffff;
 
   font-family: "Press Start 2P", monospace;
@@ -18,7 +18,7 @@ body {
   padding-top: 2rem;
   max-width: 900px;
   margin: auto;
-}
+} */
 
 /* Fondo estrellado */
 /* .stars {
@@ -33,7 +33,7 @@ body {
 } */
 
 /* CRT efecto monitor retro */
-.crt {
+/* .crt {
   position: relative;
 }
 
@@ -51,26 +51,26 @@ body {
     rgba(0, 255, 0, 0.02) 2px,
     rgba(0, 255, 0, 0.02) 4px
   );
-}
+} */
 
 /* TITULO GLITCH */
-.title {
+/* .title {
   font-size: 4rem;
   margin-bottom: 2rem;
   position: relative;
   animation: flicker 2s infinite;
-}
+} */
 
 /* Glitch layers */
-.glitch:before,
+/* .glitch:before,
 .glitch:after {
   content: attr(data-text);
   position: absolute;
   left: 0;
   top: 0;
-}
+} */
 
-.glitch:before {
+/* .glitch:before {
   left: 2px;
   text-shadow: -2px 0 red;
   animation: glitch 0.8s infinite linear reverse;
@@ -80,25 +80,25 @@ body {
   left: -2px;
   text-shadow: -2px 0 cyan;
   animation: glitch 0.8s infinite linear;
-}
+} */
 
 /* Consola de texto parpadeando */
-.scanline {
+/* .scanline {
   border-right: 2px solid #00ff66;
   margin-bottom: 2rem;
   display: inline-block;
   animation: blink 0.6s steps(1) infinite;
-}
+} */
 
 /* Objetos flotando */
-.floating-object {
+/* .floating-object {
   position: absolute;
   width: 120px;
   animation: float 6s ease-in-out infinite;
   z-index: -1;
-}
+} */
 
-.object1 {
+/* .object1 {
   top: 30%;
   left: 12%;
   animation-duration: 7s;
@@ -114,10 +114,10 @@ body {
   top: 20%;
   right: 5%;
   animation-duration: 8s;
-}
+} */
 
 /* Botón */
-.btn {
+/* .btn {
   margin-top: 2rem;
   padding: 15px 30px;
   background: #00ff66;
@@ -129,12 +129,12 @@ body {
 
 .btn:hover {
   background: #33ff88;
-}
+} */
 
 /* ANIMACIONES */
 
 /* Sin gravedad */
-@keyframes float {
+/* @keyframes float {
   0% {
     transform: translateY(0) rotate(0deg);
   }
@@ -144,10 +144,10 @@ body {
   100% {
     transform: translateY(0) rotate(-3deg);
   }
-}
+} */
 
 /* Glitch */
-@keyframes glitch {
+/* @keyframes glitch {
   0% {
     clip-path: inset(10% 0 80% 0);
   }
@@ -166,17 +166,17 @@ body {
   100% {
     clip-path: inset(20% 0 50% 0);
   }
-}
+} */
 
 /* Texto parpadeo */
-@keyframes blink {
+/* @keyframes blink {
   50% {
     border-color: transparent;
   }
-}
+} */
 
 /* Pantalla que parpadea  */
-@keyframes flicker {
+/* @keyframes flicker {
   0%,
   18%,
   22%,
@@ -190,10 +190,10 @@ body {
   55% {
     opacity: 0.2;
   }
-}
+} */
 
 /* RESPONSIVE */
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .title {
     font-size: 2.8rem;
   }
@@ -201,4 +201,260 @@ body {
   .floating-object {
     width: 70px;
   }
+} */
+
+:root {
+  --white: #f7f8f9;
+  --second_color: grey;
+  --modal-background-color: rgba(208, 208, 208, 0.357);
+  --modal-container-color: #3230a6;
 }
+
+.error {
+  margin: 0;
+  padding: 0;
+  font-family: "Press Start 2P", monospace;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -10;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.contenido {
+  background: rgba(0, 2, 112, 0.5);
+  padding: 40px;
+  border-radius: 16px;
+  z-index: 30;
+  position: relative;
+}
+
+h1 {
+  font-size: 6rem;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.glitch {
+  position: relative;
+  font-size: 6rem;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 red;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 cyan;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitch-anim2 2s infinite linear alternate-reverse;
+}
+
+/* Animaciones */
+@keyframes glitch-anim {
+  0% {
+    clip: rect(10px, 9999px, 60px, 0);
+  }
+  20% {
+    clip: rect(80px, 9999px, 140px, 0);
+  }
+  40% {
+    clip: rect(50px, 9999px, 90px, 0);
+  }
+  60% {
+    clip: rect(120px, 9999px, 180px, 0);
+  }
+  80% {
+    clip: rect(30px, 9999px, 70px, 0);
+  }
+  100% {
+    clip: rect(0px, 9999px, 100px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(70px, 9999px, 130px, 0);
+  }
+  20% {
+    clip: rect(20px, 9999px, 60px, 0);
+  }
+  40% {
+    clip: rect(100px, 9999px, 150px, 0);
+  }
+  60% {
+    clip: rect(40px, 9999px, 80px, 0);
+  }
+  80% {
+    clip: rect(90px, 9999px, 140px, 0);
+  }
+  100% {
+    clip: rect(10px, 9999px, 50px, 0);
+  }
+}
+
+#game-area {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* Planetas */
+.planet {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  animation: float 6s infinite ease-in-out;
+  z-index: 25;
+}
+
+/* Imágenes de planetas */
+.mercury {
+  background-image: url("https://i.imgur.com/vyX5tDk.png");
+}
+.venus {
+  background-image: url("https://i.imgur.com/qV8ZJQ6.png");
+}
+.earth {
+  background-image: url("https://i.imgur.com/PQp1a6F.png");
+}
+.mars {
+  background-image: url("https://i.imgur.com/Lw4jJuh.png");
+}
+
+/* Flotar cuando NO hay gravedad */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Botón */
+#toggleGravity {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  pointer-events: auto;
+  backdrop-filter: blur(4px);
+}
+/* 
+.modal-background {
+  background-color: var(--modal-background-color);
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
+  background-color: var(--modal-container-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+
+  border-radius: 12px;
+
+  padding: 24px;
+  margin: 24px;
+}
+
+.btn {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 16px;
+
+  border: 0;
+
+  color: white;
+  border-radius: 6px;
+
+  background-color: rgb(255, 0, 0);
+}
+
+.hidden {
+  display: none;
+} */
