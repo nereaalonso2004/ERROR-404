@@ -1,28 +1,3 @@
-/* Cuenta atrás de 3 minutos */
-// let time = 180;
-
-// const timer = document.getElementById("timer");
-
-// const interval = setInterval(() => {
-//   const minutes = String(Math.floor(time / 60)).padStart(2, "0");
-//   const seconds = String(time % 60).padStart(2, "0");
-
-//   timer.textContent = `${minutes}:${seconds}`;
-
-//   if (time <= 0) {
-//     clearInterval(interval);
-//     timer.textContent = "00:00";
-//   }
-
-//   time--;
-
-// }, 1000);
-
-/* Botón para volver */
-// function goBack() {
-//   window.history.back();
-// }
-
 const objects = document.querySelectorAll(".planet");
 const btn = document.getElementById("toggleGravity");
 
@@ -31,14 +6,14 @@ let velocities = [];
 
 function init() {
   objects.forEach((obj, i) => {
-    // Posición inicial aleatoria
+    // posición inicial aleatoria
     obj.style.left = Math.random() * (window.innerWidth - 100) + "px";
-    obj.style.top = Math.random() * (window.innerHeight - 150) + "px";
+    obj.style.top = Math.random() * (window.innerHeight - 100) + "px";
 
-    // Velocidad inicial
+    // velocidad inicial aleatoria
     velocities[i] = {
-      x: (Math.random() * 2 - 1) * 2,
-      y: (Math.random() * 2 - 1) * 2,
+      x: (Math.random() * 2 - 1) * 1.5,
+      y: (Math.random() * 2 - 1) * 1.5,
     };
   });
 }
@@ -46,26 +21,47 @@ function init() {
 function updatePositions() {
   objects.forEach((obj, i) => {
     const rect = obj.getBoundingClientRect();
+    let x = rect.left;
+    let y = rect.top;
 
     if (gravityOn) {
+      // gravedad hacia abajo
       velocities[i].y += 0.15;
+    } else {
+      // levitación libre distribuida
+      velocities[i].x += (Math.random() - 0.5) * 0.05; // wander horizontal
+      velocities[i].y += (Math.random() - 0.5) * 0.05; // wander vertical
+
+      // limitar velocidad máxima
+      velocities[i].x = Math.max(Math.min(velocities[i].x, 2), -2);
+      velocities[i].y = Math.max(Math.min(velocities[i].y, 2), -2);
     }
 
-    let newX = rect.left + velocities[i].x;
-    let newY = rect.top + velocities[i].y;
+    x += velocities[i].x;
+    y += velocities[i].y;
 
-    // Bordes horizontales
-    if (newX <= 0 || newX >= window.innerWidth - rect.width) {
+    // rebotes horizontales
+    if (x <= 0) {
+      x = 0;
+      velocities[i].x *= -1;
+    }
+    if (x >= window.innerWidth - rect.width) {
+      x = window.innerWidth - rect.width;
       velocities[i].x *= -1;
     }
 
-    // Bordes verticales
-    if (newY <= 0 || newY >= window.innerHeight - rect.height) {
-      velocities[i].y *= -0.8;
+    // rebotes verticales
+    if (y <= 0) {
+      y = 0;
+      velocities[i].y *= -1;
+    }
+    if (y >= window.innerHeight - rect.height) {
+      y = window.innerHeight - rect.height;
+      velocities[i].y *= -1;
     }
 
-    obj.style.left = newX + "px";
-    obj.style.top = newY + "px";
+    obj.style.left = x + "px";
+    obj.style.top = y + "px";
   });
 
   requestAnimationFrame(updatePositions);
@@ -73,13 +69,16 @@ function updatePositions() {
 
 btn.addEventListener("click", () => {
   gravityOn = !gravityOn;
-
   if (gravityOn) {
-    objects.forEach((obj) => (obj.style.animation = "none"));
+    btn.textContent = "Gravedad ON";
   } else {
-    objects.forEach(
-      (obj) => (obj.style.animation = "float 6s infinite ease-in-out")
-    );
+    btn.textContent = "Gravedad OFF";
+
+    // pequeño impulso aleatorio al desactivar gravedad
+    velocities.forEach((v) => {
+      v.x = (Math.random() * 2 - 1) * 1.5;
+      v.y = (Math.random() * 2 - 1) * 1.5;
+    });
   }
 });
 

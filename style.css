@@ -43,11 +43,12 @@ body {
 video {
   display: block;
 }
+
 .contenido {
   background: rgba(0, 2, 112, 0.5);
   padding: 40px;
   border-radius: 16px;
-  z-index: 30;
+  z-index: 60;
   position: relative;
 }
 
@@ -97,6 +98,20 @@ p {
   text-shadow: -2px 0 cyan;
   clip: rect(0, 900px, 0, 0);
   animation: glitch-anim2 2s infinite linear alternate-reverse;
+}
+
+#toggleGravity {
+  font-family: "Press Start 2P", monospace;
+  color: white;
+  z-index: 50;
+}
+
+.venus,
+.earth,
+.mars,
+.uranos {
+  width: 20vw;
+  height: 20vw;
 }
 
 /* Animaciones */
@@ -160,11 +175,11 @@ p {
   background-size: cover;
   background-position: center;
   border-radius: 50%;
-  animation: float 6s infinite ease-in-out;
+  /* animation: float 6s infinite ease-in-out; */
   z-index: 25;
 }
 
-/* Imágenes de planetas */
+/* ImÃ¡genes de planetas */
 .mercury {
   background-image: url("https://i.imgur.com/vyX5tDk.png");
 }
@@ -179,7 +194,7 @@ p {
 }
 
 /* Flotar cuando NO hay gravedad */
-@keyframes float {
+/* @keyframes float {
   0% {
     transform: translateY(0);
   }
@@ -189,9 +204,9 @@ p {
   100% {
     transform: translateY(0);
   }
-}
+} */
 
-/* Botón */
+/* BotÃ³n */
 #toggleGravity {
   position: absolute;
   bottom: 40px;
@@ -206,50 +221,3 @@ p {
   pointer-events: auto;
   backdrop-filter: blur(4px);
 }
-/* 
-.modal-background {
-  background-color: var(--modal-background-color);
-
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-container {
-  background-color: var(--modal-container-color);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  height: fit-content;
-
-  border-radius: 12px;
-
-  padding: 24px;
-  margin: 24px;
-}
-
-.btn {
-  display: block;
-  margin: 0 auto;
-  padding: 12px 16px;
-
-  border: 0;
-
-  color: white;
-  border-radius: 6px;
-
-  background-color: rgb(255, 0, 0);
-}
-
-.hidden {
-  display: none;
-} */
