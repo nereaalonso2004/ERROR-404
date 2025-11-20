@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Error 404 - Marte no encontrado</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error 404 - Marte no encontrado</title>
 
-  <!-- Tipografía pixel -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- Tipografía pixel -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="style.css" />
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
+    <!-- Fondo estrellado -->
+    <div class="stars"></div>
 
-  <!-- Fondo estrellado -->
-  <div class="stars"></div>
+    <main class="uva">
+      <h1 class="title glitch" data-text="404">404</h1>
 
-  <main class="container crt">
-    
-    <h1 class="title glitch" data-text="404">404</h1>
+      <p class="console-text scanline">
+        ALERTA: Gravedad cero detectada. El planeta MARTE ha desaparecido.
+      </p>
 
-    <p class="console-text scanline">
-      ALERTA: Grav. cero detectada.  
-      El planeta MARTE ha desaparecido.
-    </p>
-
-    <!-- Objetos flotando -->
-    <!-- <img src="https://i.imgur.com/4f7S26C.png" class="floating-object object1" alt="satélite" />
+      <!-- Objetos flotando -->
+      <!-- <img src="https://i.imgur.com/4f7S26C.png" class="floating-object object1" alt="satélite" />
     <img src="https://i.imgur.com/qyjsIOV.png" class="floating-object object2" alt="herramienta" />
     <img src="https://i.imgur.com/yRGiCME.png" class="floating-object object3" alt="casco" /> -->
 
-    <p class="countdown">
-      Tiempo restante para aterrizaje:
-      <span id="timer">03:00</span>
-    </p>
+      <p class="countdown">
+        Tiempo restante para aterrizaje:
+        <span id="timer">03:00</span>
+      </p>
 
-    <!-- <button class="btn" onclick="goBack()"> REINTENTAR </button> -->
+      <!-- <button class="btn" onclick="goBack()"> REINTENTAR </button> -->
+    </main>
 
-  </main>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
