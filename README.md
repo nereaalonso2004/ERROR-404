@@ -72,3 +72,11 @@ Problema 3 : Activar/desactivar gravedad provocaba movimientos erráticos o que 
 Solución:
 - Al desactivar gravedad, se da un pequeño impulso aleatorio a cada planeta para reiniciar su levitación.
 - Rebotes suaves aseguran que no se salgan de la pantalla.
+
+
+Integrantes del grupo de trabajo:
+- Irene Gavidia
+- Paula Fernanz
+- Paula Miguelez
+- María Ugarte
+- Nerea Alonso
