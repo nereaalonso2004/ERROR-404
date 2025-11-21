@@ -54,7 +54,7 @@ video {
 }
 
 h1 {
-  font-size: 5.5rem;
+  font-size: 5.4rem;
   margin: 0;
 }
 
@@ -71,7 +71,7 @@ p {
 
 .glitch {
   position: relative;
-  font-size: 5.5rem;
+  font-size: 5.4rem;
   color: white;
   font-weight: bold;
   letter-spacing: 2px;
@@ -227,7 +227,7 @@ p {
 
 /* MEDIA QUERIS  */
 
-@media (max-width: 910px) {
+@media (max-width: 920px) {
   *  {
     font-size: 12px;
   }
